@@ -1,27 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.container {
+  background-color: white;
+}
+.float-label-input {
+  margin: 32px 0;
+}
+
+.float-label-input:focus-within label,
+.float-label-input input:not(:placeholder-shown) + label {
+  transform: translateY(-1.5rem) scale(0.75);
+  background-color: white;
+  color: var(--main-text-color);
+}
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* -------------------background----------------------- */
+  --main-background: #f9f9f9;
+  --secondary-background: #ffffff;
+
+  /* -------------------extra background----------------------- */
+
+  /* -------------------typo----------------------- */
+  --main-text-color: #000000;
+  --secondary-text-color: #9fa5b0;
+  --tertiary-text-color: #747474;
+  --brand-text-color: #e95e11;
+  --brown-text-color: #bf2507;
+  --light-on-surface-variant: #49454f;
+
+  /* -------------------border----------------------- */
+
+  --border: #ededed;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html[data-theme="light"] {
+  /* -------------------background----------------------- */
+
+  /* -------------------extra background----------------------- */
+
+  /* -------------------typo----------------------- */
+
+  /* -------------------border----------------------- */
+
+  --border-default: rgba(103, 117, 161, 0.22);
+  --border-error: rgba(220, 38, 38, 0.3);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html[data-theme="dark"] {
+  /* -------------------background----------------------- */
+
+  /* -------------------border----------------------- */
+
+  --border-error: rgba(220, 38, 38, 0.3);
 }
